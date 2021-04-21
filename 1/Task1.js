@@ -1,8 +1,8 @@
 function maxItemAssociation(data) 
 { 
-    console.log(data);
+   console.log(data);
 
-    if (data === null || data === undefined)
+    if (!data)
     {
         console.log("data is empty");
         
@@ -20,7 +20,7 @@ function maxItemAssociation(data)
 
     console.log(listAssociation);
 
-    var lagestAssociation = GetLagestAssociation(listAssociation);
+    let lagestAssociation = GetLagestAssociation(listAssociation);
 
     console.log(lagestAssociation);
 }
@@ -28,10 +28,6 @@ function maxItemAssociation(data)
 function SetAssociation(listAssociation, group)
 {
     let index = GetAssociationIndex(listAssociation, group);
-
-    //console.log(group);
-
-     //console.log(index);
 
     if (index > -1)
     {
@@ -43,8 +39,6 @@ function SetAssociation(listAssociation, group)
         // добавить новую ассоциацию
         AddNewAssociation(listAssociation, group);
     }
-
-    //console.log(listAssociation);
 }
 
 function AddNewAssociation(listAssociation, group)
