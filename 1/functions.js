@@ -1,8 +1,8 @@
-function IsInGroup(association, group)
+function isInGroup(association, group)
 {
     for(let i=0; i< group.length; i++)
     {
-        let isInAssociation = IsItemInAssociation(association, group[i]);
+        let isInAssociation = isItemInAssociation(association, group[i]);
 
         if(isInAssociation)
         {
@@ -13,16 +13,16 @@ function IsInGroup(association, group)
     return false;
 }
 
-function PushLexicographic(association, item)
+function pushLexicographic(association, item)
 {
     association.push(item);
 
     association = association.sort();
 }
 
-function GetLagestAssociation(listAssociation)
+function getLagestAssociation(listAssociation)
 {
-    listAssociation = listAssociation.sort(CompareDesc);
+    listAssociation = listAssociation.sort(compareDesc);
 
     if (listAssociation.length > 0)
     {
@@ -34,7 +34,7 @@ function GetLagestAssociation(listAssociation)
     }    
 }
 
-function CompareDesc(a, b)
+function compareDesc(a, b)
 {
     let value = a.length - b.length;
     
@@ -43,7 +43,7 @@ function CompareDesc(a, b)
     return descValue;
 }
 
-function IsItemInAssociation(association, item)
+function isItemInAssociation(association, item)
 {
     var index = association.indexOf(item); //binarySearch(item, association);// 
     

@@ -15,33 +15,33 @@ function maxItemAssociation(data)
     {
         let item = data[i];
 
-        SetAssociation(listAssociation, item)
+        setAssociation(listAssociation, item)
     }
 
     console.log(listAssociation);
 
-    let lagestAssociation = GetLagestAssociation(listAssociation);
+    let lagestAssociation = getLagestAssociation(listAssociation);
 
     console.log(lagestAssociation);
 }
 
-function SetAssociation(listAssociation, group)
+function setAssociation(listAssociation, group)
 {
-    let index = GetAssociationIndex(listAssociation, group);
+    let index = getAssociationIndex(listAssociation, group);
 
     if (index > -1)
     {
         // добавить группу в асоциацию
-        AddToAssociation(listAssociation[index], group);
+        addToAssociation(listAssociation[index], group);
     }
     else 
     {
         // добавить новую ассоциацию
-        AddNewAssociation(listAssociation, group);
+        addNewAssociation(listAssociation, group);
     }
 }
 
-function AddNewAssociation(listAssociation, group)
+function addNewAssociation(listAssociation, group)
 {
     var association = new Array();
 
@@ -49,30 +49,30 @@ function AddNewAssociation(listAssociation, group)
     {
         let item = group[i];
 
-        PushLexicographic(association, item);
+        pushLexicographic(association, item);
     }
 
     listAssociation.push(association);
 }
 
-function AddToAssociation(association, group)
+function addToAssociation(association, group)
 {
     for(let i=0; i< group.length; i++)
     {
         let item = group[i];
 
-        if (!IsItemInAssociation(association, item))
+        if (!isItemInAssociation(association, item))
         {
-            PushLexicographic(association, item);
+            pushLexicographic(association, item);
         }
     }
 }
 
-function GetAssociationIndex(listAssociation, group)
+function getAssociationIndex(listAssociation, group)
 {
     for (let i=0; i < listAssociation.length; i++)
     {
-        if (IsInGroup(listAssociation[i], group))
+        if (isInGroup(listAssociation[i], group))
         {
             return i;
         }
